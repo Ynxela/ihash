@@ -1,0 +1,25 @@
+{% extends 'mainapp/base.html' %}
+{% load staticfiles %}
+
+{% block wrap %}
+<a class="logo" href="{% url 'main' %}">
+    <p><i>i</i>#</p>
+</a>
+
+<div class='field'>
+    <p>Your key</p>
+</div>
+<div class='field'>
+    {% for link in links %}
+    <p>{{ link }}</p>
+    {% endfor %}
+    <p>Link</p>
+
+</div>
+<div class='field'>
+    <p>Password</p>
+
+</div>
+<div class="button">
+</div>
+{% endblock %}

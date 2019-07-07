@@ -1,0 +1,84 @@
+a {
+    text-decoration: none;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: #4e4e4e;
+    margin: 0;
+}
+
+.wrap {
+    height: 100%;
+    position: relative;
+    display: flex;
+    margin: auto auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo,
+.button {
+    transition: 0.5s;
+}
+
+.button,
+.field,
+.logo {
+    margin: 10px;
+    border-radius: 16px;
+    height: 48px;
+}
+
+.field {
+    width: 420px;
+    background-color: #989898;
+    cursor: text;
+    height: 28px;
+    padding: 10px;
+}
+
+
+.button {
+    width: 100px;
+    background-color: rgb(137, 198, 237, 0.8);
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgb(137, 198, 237);
+}
+
+.button:active {
+    margin-bottom: 4px;
+    background-color: rgb(137, 233, 237);
+
+}
+
+.logo {
+    font-size: 30pt;
+    color: rgb(137, 198, 237, .3);
+    border: 1px solid rgb(137, 198, 237, .3);
+    width: 48px;
+    text-align: center;
+    user-select: none;
+    position: absolute;
+    cursor: pointer;
+    z-index: 1000;
+    top: 20px;
+    left: 20px;
+}
+
+.logo p {
+    margin: 0;
+}
+
+.logo:hover {
+    border: 1px solid rgb(137, 198, 237);
+    color: rgb(137, 198, 237);
+}
