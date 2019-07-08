@@ -13,13 +13,32 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% endblock %}
     {% block js %}
-    <script> </script> 
+    <script> </script>
     {% endblock %}
 </head>
 
 <body>
-    <div class="wrap"> 
-        {% block wrap %}
+    <div class="header">
+        <a class="logo" href="{% url 'main' %}">
+            <p><i>i</i>#</p>
+        </a>
+
+        <div class='field'>
+            <p>PLACE TAG</p>
+        </div>
+        <div class='field'>
+            <p>PLACE LINK</p>
+        </div>
+        <div class='field'>
+            <p>SET PASSWORD</p>
+
+        </div>
+        <div class="button">
+            <p>ADD</p>
+        </div>
+    </div>
+    <div class="container">
+        {% block links %}
         {% endblock %}
     </div>
 

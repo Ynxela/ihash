@@ -8,45 +8,56 @@ body {
 }
 
 body {
-    background-color: #4e4e4e;
+    background-color: rgb(66, 73, 75);
     margin: 0;
 }
 
-.wrap {
+.container {
     height: 100%;
     position: relative;
     display: flex;
-    margin: auto auto;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    margin-top: 50px;
+    flex-direction: column;
+    margin-left: 30px;
 }
 
 .logo,
-.button {
-    transition: 0.5s;
+.button,
+.link-element p,
+.element-href {
+    transition: 0.3s ease;
 }
 
 .button,
 .field,
 .logo {
-    margin: 10px;
+    margin: 50px 10px;
     border-radius: 16px;
-    height: 48px;
+    font-family: monospace;
+    font-size: 14pt;
+    color: rgb(66, 73, 75);
 }
 
 .field {
-    width: 420px;
-    background-color: #989898;
+    min-width: 80px;
+    background-color: rgb(125, 139, 124);
     cursor: text;
-    height: 28px;
-    padding: 10px;
+    transition: 1s;
+    transition-delay: 0.5s;
+
 }
 
+.field:hover {
+    min-width: 200px;
+    background-color: rgb(125, 139, 124);
+    transition: 0.5s;
+    transition-delay: 0.1s;
+}
 
 .button {
-    width: 100px;
-    background-color: rgb(137, 198, 237, 0.8);
+    min-width: 40px;
+    background-color: rgba(137, 198, 237, 0.8);
     cursor: pointer;
 }
 
@@ -55,30 +66,80 @@ body {
 }
 
 .button:active {
-    margin-bottom: 4px;
     background-color: rgb(137, 233, 237);
-
 }
 
 .logo {
-    font-size: 30pt;
-    color: rgb(137, 198, 237, .3);
-    border: 1px solid rgb(137, 198, 237, .3);
-    width: 48px;
+    color: rgb(137, 198, 237, 0.3);
+    border: 1px solid rgba(137, 198, 237, 0.3);
     text-align: center;
     user-select: none;
-    position: absolute;
     cursor: pointer;
-    z-index: 1000;
-    top: 20px;
-    left: 20px;
+    margin-right: 40px;
 }
 
-.logo p {
-    margin: 0;
-}
-
-.logo:hover {
+.logo:hover,
+.control:hover {
     border: 1px solid rgb(137, 198, 237);
     color: rgb(137, 198, 237);
+}
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    margin: 0 50px;
+    border-bottom: 1px solid rgba(137, 198, 237, 0.2);
+    min-width: 820px;
+}
+
+.logo p,
+.field p,
+.button p {
+    margin: 12px;
+}
+
+.link-element p {
+    margin: 10px 0;
+}
+
+.link-element {
+    display: flex;
+    color: white;
+    font-size: 18px;
+}
+
+.link-element p {
+    border-left: 1px solid rgba(137, 198, 237, 0.2);
+    padding: 4px 16px;
+    text-align: center;
+    font-family: monospace;
+}
+
+p.control {
+    border: 1px solid rgba(137, 198, 237, 0.3);
+    border-radius: 8px;
+    color: rgba(137, 198, 237, 0.3);
+    user-select: none;
+    cursor: pointer;
+    margin-left: 30px;
+    padding: 4px 12px;
+}
+
+.link-element p:first-child {
+    border-left: none;
+}
+
+p.control:hover {
+    color: rgb(66, 73, 75);
+    background-color: rgba(137, 198, 237);
+}
+
+.element-href {
+    color: rgba(137, 198, 237, 0.8);
+}
+
+.element-href:hover {
+    color: rgb(137, 198, 237);
+    border-bottom: 3px solid rgba(137, 198, 237, 0.4);
 }
