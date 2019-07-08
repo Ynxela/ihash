@@ -45,7 +45,8 @@ body {
     cursor: text;
     transition: 1s;
     transition-delay: 0.5s;
-
+    outline: none;
+    border: none;
 }
 
 .field:hover {
@@ -143,3 +144,5 @@ p.control:hover {
     color: rgb(137, 198, 237);
     border-bottom: 3px solid rgba(137, 198, 237, 0.4);
 }
+
+.post-form {}

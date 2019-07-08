@@ -21,6 +21,7 @@ def main(request, pk=None):
     content = {
         'title': title,
         'links': links,
+        'form': form
     }
 
     return render(request, 'mainapp/index.html', context=content)

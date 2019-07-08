@@ -26,7 +26,7 @@ SECRET_KEY = 'c3mphla%3yynyj9fkl12+!im54d6d!wuq_lfunbn8_z+e08lj8'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+AUTH_USER_MODEL = "authapp.IHashUser"
 
 # Application definition
 
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mainapp',
+    'authapp',
 ]
 
 MIDDLEWARE = [
