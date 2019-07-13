@@ -23,6 +23,7 @@
             <p><i>i</i>#</p>
         </a>
 
+<!--
         <div class='field'>
             <p>PLACE TAG</p>
         </div>
@@ -36,6 +37,14 @@
         <div class="button">
             <p>ADD</p>
         </div>
+-->
+
+        <form method="POST" class="post-form">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="button">ADD</button>
+        </form>
+
     </div>
     <div class="container">
         {% block links %}

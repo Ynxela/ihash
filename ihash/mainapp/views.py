@@ -25,3 +25,15 @@ def main(request, pk=None):
     }
 
     return render(request, 'mainapp/index.html', context=content)
+
+
+def create(request):
+    pass
+
+
+def update(request):
+    pass
+
+
+def delete(requesst):
+    pass

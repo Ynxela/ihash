@@ -47,19 +47,21 @@ body {
     transition-delay: 0.5s;
     outline: none;
     border: none;
+    padding: 10px;
 }
 
 .field:hover {
-    min-width: 200px;
     background-color: rgb(125, 139, 124);
     transition: 0.5s;
     transition-delay: 0.1s;
 }
 
 .button {
-    min-width: 40px;
+    min-width: 60px;
     background-color: rgba(137, 198, 237, 0.8);
     cursor: pointer;
+    border: none;
+    outline: none;
 }
 
 .button:hover {
@@ -92,6 +94,10 @@ body {
     margin: 0 50px;
     border-bottom: 1px solid rgba(137, 198, 237, 0.2);
     min-width: 820px;
+}
+
+.post-form {
+    display: flex;
 }
 
 .logo p,
