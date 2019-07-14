@@ -1,7 +1,8 @@
 from django.contrib import admin
 
-from .models import IHash
+from .models import IHashLink, IHashTag
 
 # Register your models here.
 
-admin.site.register(IHash)
+admin.site.register(IHashLink)
+admin.site.register(IHashTag)

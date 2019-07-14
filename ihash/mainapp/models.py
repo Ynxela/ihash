@@ -1,15 +1,23 @@
+from datetime import datetime, timedelta
+
 from django.db import models
 
-class IHash(models.Model):
-    tag_hash = models.CharField(max_length=64, verbose_name='тег')
+
+class IHashTag(models.Model):
+    tag_hash = models.CharField(max_length=64, verbose_name='хеш названия тега')
+
+    def __str__(self):
+        return self.tag_hash
+
+
+class IHashLink(models.Model):
+    tag = models.ForeignKey(IHashTag, on_delete=models.CASCADE, related_name='ihashtag')
     link = models.CharField(max_length=256, verbose_name='ссылка')
-    password_hash = models.CharField(max_length=64, verbose_name='пароль', blank=True)
-    date_created = models.DateTimeField(verbose_name='время создания')
-    date_expiration = models.DateTimeField(verbose_name='время время удаления')
+    password_hash = models.CharField(max_length=64, verbose_name='хеш пароля', blank=True)
+    date_created = models.DateTimeField(verbose_name='время создания', auto_now_add=True)
+    date_expiration = models.DateTimeField(verbose_name='время удаления', default=datetime.now() + timedelta(days=30))
     is_active = models.BooleanField(verbose_name='активная ссылка или нет', default=True)
-    counter_increases = models.PositiveIntegerField(default=0, verbose_name='сколько раз продлевали жизнь')
-    client = models.PositiveIntegerField(default=1, verbose_name='откуда была добавлена ссылка. 1 - desctop, 2 - bot')
-    ip_addr = models.CharField(max_length=64, blank=True, verbose_name='ip, с которого добавлена ссылка')
+    ip_addr = models.GenericIPAddressField(protocol='both', verbose_name='ip, с которого добавлена ссылка')
 
     def __str__(self):
         return self.link

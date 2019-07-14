@@ -1,34 +1,67 @@
-from django.shortcuts import render
-from datetime import datetime, timedelta
 import hashlib
-from .models import IHash
-from .forms import IHashForm
 
-def main(request, pk=None):
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
+from django.urls import reverse
 
-    form = IHashForm()
+from .forms import IHashCreateForm, IHashReadForm
+from .models import IHashLink, IHashTag
 
+
+def main(request, hash=None):
     title = 'iHash'
-    if pk == None:
-        links = IHash.objects.all()
-    else:
-        try:
-            links = IHash.objects.all()[pk-1:pk]
-        except:
-            links = IHash.objects.all()
-        print(links)
+
+    create_form = IHashCreateForm()
+    search_form = IHashReadForm()
+
+    links = []
+
+    if hash:
+        tag = IHashTag.objects.filter(tag_hash=hash)
+        if tag:
+            links = IHashLink.objects.filter(tag=tag[0]).order_by('-date_created')
 
     content = {
         'title': title,
         'links': links,
-        'form': form
+        'create_form': create_form,
+        'search_form': search_form
     }
 
     return render(request, 'mainapp/index.html', context=content)
 
 
 def create(request):
-    pass
+    if request.method == 'POST':
+        link = request.POST.get('link')
+        tag = request.POST.get('tag')
+        ip_addr = request.META.get('REMOTE_ADDR')
+        password = request.POST.get('password')
+        new_tag_hash = hashlib.sha256(tag.encode()).hexdigest()
+
+        old_tag = IHashTag.objects.filter(tag_hash=new_tag_hash)
+
+        if old_tag:
+            new_tag = old_tag[0]
+        else:
+            new_tag = IHashTag(tag_hash=new_tag_hash)
+            new_tag.save()
+
+        new_link = IHashLink(tag=new_tag, link=link, ip_addr=ip_addr)
+
+        if password:
+            new_link.password_hash = hashlib.sha256(password.encode()).hexdigest()
+
+        new_link.save()
+
+        return HttpResponseRedirect(reverse('main', kwargs={'hash': new_tag_hash}))
+
+
+def read(request):
+    tag = request.POST.get('tag')
+    new_tag_hash = hashlib.sha256(tag.encode()).hexdigest()
+    return HttpResponseRedirect(reverse('main', kwargs={
+        'hash': new_tag_hash}))
 
 
 def update(request):

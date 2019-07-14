@@ -6,12 +6,32 @@
 
 
 {% for item in links %}
-<div data='{{ item.id }}' class="link-element">
-    <p><a class="element-href" href="{{ item.link }}" target="_blank">{{ item.link }}</a></p>
-    <p>{{ item.tag_hash }}</p>
-    <p>{{ item.tag_hash }}</p>
-    <p class="control">rebirth</p>
-    <p class="control">X</p>
+<div class='ihash-item' data='{{ item.id }}' class="link-element">
+
+    <div class="item-menu">
+        <div class="control c-left">
+            <p>rebirth</p>
+        </div>
+        <div class="control c-right">
+            <p>x</p>
+        </div>
+    </div>
+
+    <div class="item-data-container">
+        <div class="item-link">
+            <a class="element-href" href="{{ item.link }}" target="_blank" title=>{{ item.link }}</a>
+        </div>
+        <div class="item_date">
+            <p>CREATED</p>
+            <p>{{ item.date_created }}</p>
+        </div>
+        <div class="item_date">
+            <p>EXPIRED</p>
+            <p>{{ item.date_expiration }}</p>
+        </div>
+
+    </div>
+
 </div>
 {% endfor %}
 

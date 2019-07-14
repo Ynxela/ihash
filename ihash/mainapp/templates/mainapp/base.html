@@ -13,37 +13,51 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% endblock %}
     {% block js %}
-    <script> </script>
+    <script></script>
     {% endblock %}
 </head>
 
 <body>
     <div class="header">
-        <a class="logo" href="{% url 'main' %}">
-            <p><i>i</i>#</p>
-        </a>
-
-<!--
-        <div class='field'>
-            <p>PLACE TAG</p>
-        </div>
-        <div class='field'>
-            <p>PLACE LINK</p>
-        </div>
-        <div class='field'>
-            <p>SET PASSWORD</p>
+        <div class="logo-container">
+            <a href="{% url 'main' %}">
+                <div class="logo">
+                    <p><i>i</i>#</p>
+                </div>
+            </a>
 
         </div>
-        <div class="button">
-            <p>ADD</p>
-        </div>
--->
 
-        <form method="POST" class="post-form">
-            {% csrf_token %}
-            {{ form }}
-            <button type="submit" class="button">ADD</button>
-        </form>
+
+        <div class="form-container">
+
+            <form class='post-form' action="create/" method="POST" autocomplete="off">
+                <input placeholder="TAG" class='field' name="tag" type="text">
+                <input placeholder="LINK" class='field' name="link" type="text">
+                <input placeholder="PASSWORD" class='field' name="password" type="text">
+                <button type="submit" class="button">ADD</button>
+                {% csrf_token %}
+            </form>
+            <form class='post-form' action="read/" method="POST" autocomplete="off">
+                <input placeholder="TAG" class='field' name="tag" type="text">
+                <input placeholder="PASSWORD" class='field' name="password" type="text">
+                <button type="submit" class="button">SEARCH</button>
+                {% csrf_token %}
+            </form>
+
+        </div>
+
+
+        <!--    <form method="POST" class="post-form" action="">-->
+        <!--        {% csrf_token %}-->
+        <!--        {{ create_form }}-->
+        <!--        <button type="submit" class="button">ADD</button>-->
+        <!--    </form>-->
+        <!--    <form method="GET" class="post-form" action="search">-->
+        <!--        {% csrf_token %}-->
+        <!--        {{ search_form }}-->
+        <!--        <button type="submit" class="button">SEARCH</button>-->
+        <!--    </form>-->
 
     </div>
     <div class="container">
