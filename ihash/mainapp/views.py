@@ -16,10 +16,12 @@ def main(request, hash=None):
 
     links = []
 
-    if hash:
-        tag = IHashTag.objects.filter(tag_hash=hash)
-        if tag:
-            links = IHashLink.objects.filter(tag=tag[0]).order_by('-date_created')
+    if hash is not None:
+        try:
+            tag = IHashTag.objects.get(tag_hash=hash)
+            links = IHashLink.objects.filter(tag=tag).order_by('-date_created')
+        except:
+            pass
 
     content = {
         'title': title,
