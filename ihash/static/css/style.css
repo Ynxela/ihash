@@ -13,13 +13,6 @@ a {
     text-decoration: none;
 }
 
-.link-element p,
-.element-href,
-.field,
-.control {
-    transition: 0.3s ease;
-}
-
 /*****/
 /*here starts header*/
 /*****/
@@ -57,7 +50,6 @@ a {
     cursor: pointer;
     user-select: none;
     text-align: center;
-    transition: 0.3s ease;
 }
 
 .logo:hover {
@@ -80,7 +72,6 @@ a {
     margin: 8px;
     background-color: rgba(1, 5, 6, 0.17);
     cursor: text;
-    transition-delay: 0.5s;
     outline: none;
     border: none;
     padding: 10px;
@@ -90,8 +81,6 @@ a {
 
 .field:hover {
     background-color: rgba(13, 46, 54, 0.22);
-    transition: 0.5s;
-    transition-delay: 0.1s;
 }
 
 .button {
@@ -99,7 +88,6 @@ a {
     cursor: pointer;
     border: none;
     outline: none;
-    transition: 0.3s ease;
     border: 1px solid rgba(137, 198, 237, 0.3);
     color: rgb(137, 198, 237, 0.3);
     background-color: transparent;
