@@ -230,7 +230,7 @@ a {
     margin: 10px 0;
     padding: 4px 0;
     width: 100%;
-    background-color: rgb(61, 71, 74);
+    background-color: rgba(61, 71, 74, 0.5);
 }
 
 .item_date:hover {
