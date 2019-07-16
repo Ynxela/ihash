@@ -20,7 +20,7 @@ class IHashLink(models.Model):
     link = models.CharField(max_length=256, verbose_name='ссылка')
     password_hash = models.CharField(max_length=64, verbose_name='хеш пароля', blank=True)
     date_created = models.DateTimeField(verbose_name='время создания', default=timezone.now)
-    date_expiration = models.DateTimeField(verbose_name='время удаления', default=get_expired_date())
+    date_expiration = models.DateTimeField(verbose_name='время удаления', default=get_expired_date)
     is_active = models.BooleanField(verbose_name='активная ссылка или нет', default=True)
     ip_addr = models.GenericIPAddressField(protocol='both', verbose_name='ip, с которого добавлена ссылка')
 
