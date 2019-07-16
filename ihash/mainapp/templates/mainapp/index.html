@@ -3,36 +3,32 @@
 
 {% block links %}
 
-
 {% for item in links %}
+
 <div class='ihash-item' data='{{ item.id }}' class="link-element">
 
-    <div class="item-menu">
-        <div class="control c-left">
-            <p>rebirth</p>
-        </div>
-        <div class="control c-right">
-            <p>x</p>
-        </div>
-    </div>
+    <img class="item-image" src="{{ item.image_url|default:item.get_empty_image }}" alt="">
 
-    <div class="item-data-container">
-        <div class="item-link">
-            <a class="element-href" href="{{ item.link }}" target="_blank" title=>{{ item.link }}</a>
-        </div>
+    <a class="control c-left" title='add 30 days to link'></a>
+    <a class="control c-right" href="{% url 'delete' item.pk %}" title='delete'></a>
+
+    <div class="item-content">
+        <a class="element-href" href="{{ item.link }}" target="_blank" title="{{ item.title }} {{ item.link }}">
+            {% if item.title %}
+            {{ item.title }}
+            {% else %}
+            {{ item.link }}
+            {% endif %}
+        </a>
+
         <div class="item_date">
-            <p>CREATED</p>
-            <p>{{ item.date_created }}</p>
-        </div>
-        <div class="item_date">
-            <p>EXPIRED</p>
-            <p>{{ item.date_expiration }}</p>
+            <p>EXPIRED {{ item.date_expiration|date:"d/m/y" }} | {{ item.date_expiration|time:"H:i" }}</p>
         </div>
 
     </div>
 
 </div>
-{% endfor %}
 
+{% endfor %}
 
 {% endblock %}

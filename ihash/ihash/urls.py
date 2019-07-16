@@ -10,6 +10,7 @@ urlpatterns = [
     path('', mainapp.main, name='main'),
     path('<str:hash>', mainapp.main, name='main'),
     path('create/', mainapp.create, name='create'),
+    path('delete/<int:pk>', mainapp.delete, name='delete'),
     path('read/', mainapp.read, name='read'),
     path('admin/', admin.site.urls),
 ]
